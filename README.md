@@ -50,6 +50,7 @@ This setup is often seen in environments where scripted languages are used and d
 
 #### Cons
 
+- Code completion from installed libraries/dependencies may not be available without mounting the installed libraries back on the host
 - Working with runtime debuggers (setting breakpoints) is often quite tricky because the app process is in a container and connecting to it can be challenging depending on language/framework
 - For languages that require compilation, feedback loops may be longer (rebuild image and restart container). Caching those builds may be harder to do too.
 
@@ -71,7 +72,9 @@ This setup is often seen when teams want to have an extremely consistent develop
 #### Cons
 
 - Little to no customization available by developers/users - you get only what's bundled in the devcontainer environment
-- Docker-in-Docker scenarios are tricky to work with (eg, using Testcontainers), especially if registry credentials are required
+- Gaining access to host-specific configuration can be tricky. This might include things such as:
+    - Docker-in-Docker scenarios are tricky to work with (eg, using Testcontainers), especially if registry credentials are required
+    - Git credentials, especially if you are using a credential manager
 
 
 ## Contributing
